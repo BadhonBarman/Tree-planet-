@@ -2,16 +2,14 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight,
   0.1,1000);
 
-camera.position.set(15,50,15);
+camera.position.set(15,50,15)
 
 // const axes = new THREE.AxesHelper(100);
 // scene.add(axes);
-
 
 
 // const boxgeometry = new THREE.BoxGeometry( 1, 1, 1 );
@@ -25,8 +23,7 @@ camera.position.set(15,50,15);
 
 
 var radius = 35;
-
-
+var treeAmount = 200; 
 
 function planet(r) {
   const circlegeometry = new THREE.SphereGeometry(r,100,100);
@@ -44,8 +41,6 @@ light1.position.set( 0, 0, 1 );
 
 scene.add(light1);
 scene.add(light2);
-
-
 
 
 function trees(angles) {
@@ -84,12 +79,12 @@ function trees(angles) {
 
 };
 
-// Generate a random angle triple from [0, 2PI]
+// Generate a random angle triple from [0, 5PI2
 function randomAngleTriple() {
   return [
-    2 * Math.PI * Math.random(),
-    2 * Math.PI * Math.random(),
-    2 * Math.PI * Math.random()
+    5 * Math.PI * Math.random(),
+    5 * Math.PI * Math.random(),
+    5 * Math.PI * Math.random()
   ]
 }
 
@@ -100,14 +95,13 @@ function growTrees(n) {
 }
 
 
-
-function init(){
+function init() {
   // Orbital controls (rotation)
   controls = new THREE.OrbitControls(camera, renderer.domElement);
   controls.autoRotate = true;
   controls.update();
   planet(radius);
-  growTrees(200);
+  growTrees(treeAmount);
 }
 
 
@@ -116,5 +110,13 @@ function animate() {
   controls.update() ;
   renderer.render(scene, camera);
 };
+
+// responsive 
+window.addEventListener('resize', function(){
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
 init();
 animate();
