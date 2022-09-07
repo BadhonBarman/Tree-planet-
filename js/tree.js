@@ -12,16 +12,6 @@ camera.position.set(15,50,15)
 // scene.add(axes);
 
 
-// const boxgeometry = new THREE.BoxGeometry( 1, 1, 1 );
-// const boxmaterial = new THREE.MeshBasicMaterial({color: 0x00ff00});
-// const cube = new THREE.Mesh( boxgeometry, boxmaterial );
-// scene.add(cube);
-// cube.position.set(0,3,0);
-
-
-
-
-
 var radius = 35;
 var treeAmount = 200; 
 
