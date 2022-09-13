@@ -23,7 +23,6 @@ function planet(r) {
   scene.add(circle);
 }
 
-
 // Create lights, add lights to scene
 var light1 = new THREE.DirectionalLight( 0xDDEED3, 1 );
 var light2 = new THREE.AmbientLight(0x7D7D7D);
